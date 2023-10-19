@@ -1,0 +1,58 @@
+objective: build a poker hand evaluator.
+
+    interface: 
+        input: 5 cards from a user.
+        output: highest rank that can be obtained using those 5 cards.
+
+0. Plan
+    - stories and preliminary subtasks: done
+    - preliminary project structure
+    - preliminary documentation
+
+1. Learn Poker:
+    
+2. Model Poker domain.
+
+3. Implement a REST API application scaffolding and endpoint 
+    endpoint:
+        path: /evaluate [Can rename later]
+        method: POST
+        data interface: JSON
+
+4. define the /evaluate endpoint
+    - define flow
+    - define validations
+    NB: no need to implement completely, it's simply to give us the the big picture of how everything will fit 
+        together.
+        in an MVP/POC context we would have a working piece of software with the Pocker domain modelled to showcase.
+        
+5. Define scenarios for calculate_highest_hand_rank[Can rename later] algorithm
+
+6. Implement tests for calculate_highest_hand_rank algorithm
+    Feel free to add scaffolding the tests require (Interface, method/function declaration etc)
+    NB: No implementation yet though.
+
+7. Implement calculate_highest_hand_rank algorithm
+    - decide on 3ʳᵈ party library/API
+        if one exists that is battle tested.
+            - integrate with it.
+        else implement your own highest hand rank algorithm
+
+8. Define scenarios for /evaluate endpoint
+
+9. Implement tests for /evaluate endpoint
+
+10. Implement the /evaluate endpoint
+
+11. Complete README documentation
+    - instructions to build/run
+    - utility scripts
+
+12. add end to end test for /evaluate endpoint
+
+...
+
+Key:
+   * first pass done
+   ** second pass
+   ... more might follow [We use an iterative approach, more will definitely follow]

@@ -1,16 +1,94 @@
 objective: build a poker hand evaluator.
-
     interface: 
         input: 5 cards from a user.
         output: highest rank that can be obtained using those 5 cards.
+    brute force flow:
+        - generate all possible ranks
+        - find and return the highest rank
 
 0. Plan
     - stories and preliminary subtasks: done
     - preliminary project structure: done
     - preliminary documentation: done
 
-1. Learn Poker:
-    
+1. Learn Poker: done
+    references:
+        https://en.wikipedia.org/wiki/List_of_poker_hands
+        ...
+
+    - there exists 3 variations:
+        - high games
+        - low games
+        - high-low split
+            
+    - poker hand:
+        - properties:
+            - 5 cards
+            - rank: determined by the patterns formed by its cards.
+                - ranks and their ordering: https://en.wikipedia.org/wiki/List_of_poker_hands
+
+                Highest Rank  = 1, Lowest Rank = 10
+                -            rank_order        rank                        example
+                -                1       Five of a kind	        Ace of spades,    Ace of clubs,      Ace of hearts,   Ace of diamonds, Black Joker
+                -                2       Straight flush  	    Jack of clubs,    10 of clubs,       9 of clubs,      8 of clubs,      7 of clubs
+                -                3       Four of a kind	        5 of clubs,       5 of diamonds,     5 of hearts,     5 of spades,     2 of diamonds
+                -                4       Full house	            6 of spades,      6 of hearts,       6 of diamonds,   King of clubs,   King of hearts
+                -                5       Flush	                Jack of diamonds, 9 of diamonds,     8 of diamonds,   4 of diamonds,   3 of diamonds
+                -                6       Straight	            10 of diamonds,   9 of spades,       8 of hearts,     7 of diamonds,   6 of clubs
+                -                7       Three of a kind         Queen of clubs,   Queen of spades,   Queen of hearts, 9 of hearts,     2 of spades
+                -                8       Two pair	            Jack of hearts,   Jack of spades,    3 of clubs,      3 of spades,     2 of hearts
+                -                9       One pair	            10 of spades,     10 of hearts,      8 of spades,     7 of hearts,     4 of clubs
+                -               10      High card	            King of diamonds, Queen of diamonds, 7 of spades,     4 of spades,     3 of hearts
+        
+                - rank algorithm: describes how the patterns of the cards, are used to calculate the rank.
+                    TODO: This should be a solved problem, find a library/REST API that does this.
+                        problem:
+                            given: 
+                                hand = 5 cards
+                            objective: generate all possible Poker hand ranks for the 5 cards.
+
+                            example:
+                                given:
+                                    hand = 6C, 7C, 8C, 9C 10C
+                                            C = Clubs
+                                return:
+                                    [ High Card, Straight, Straight Flush ]
+                
+    - cards:
+        list_of_cards: A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2
+        list_of_suits: Spades, Hearts, Diamonds, Clubs.
+        jokers: optional
+            total number of cards = (list_of_cards × list_of_suits) + jokers
+                                (13 × 4) + jokers = 52 + jokers
+                NB: Each card exists in each suit.
+        rank:
+            Highest Rank  = 1, Lowest Rank = 13
+            rank        name
+            1            A,
+            2            K, 
+            3            Q,
+            4            J, 
+            5            10, 
+            6            9, 
+            7            8, 
+            8            7, 
+            9            6, 
+            10           5, 
+            11           4, 
+            12           3, 
+            13           2
+            TODO: Q: What is the rank of the Joker cards?
+            NB: suits are NOT ranked.
+
+    - showdown: determines who wins the pot[purely for gaining a big picture to design for, we will not be implementing this]:
+        - rules:
+            - a hand in a higher-ranking rank always ranks higher than a hand in a lower-ranking rank:
+                i.e. if hand_a.rank < hand_b.rank: hand_a ranks higher than hand_b
+                TODO: NB: be careful here, because rank 1 is higher than rank 10.
+                NB: since suits are NOT ranked.
+                    hands that differ only by suit have EQUAL rank.
+            - within the same rank, a hand is ranked using its card's ranks.
+
 2. Model Poker domain.
 
 3. Implement a REST API application scaffolding and endpoint 
@@ -22,7 +100,7 @@ objective: build a poker hand evaluator.
 4. define the /evaluate endpoint
     - define flow
     - define validations
-    NB: no need to implement completely, it's simply to give us the the big picture of how everything will fit 
+    NB: no need to implement completely, it's simply to give us the big picture of how everything will fit 
         together.
         in an MVP/POC context we would have a working piece of software with the Pocker domain modelled to showcase.
         

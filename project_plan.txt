@@ -7,7 +7,7 @@ objective: build a poker hand evaluator.
 0. Plan
     - stories and preliminary subtasks: done
     - preliminary project structure: done
-    - preliminary documentation
+    - preliminary documentation: done
 
 1. Learn Poker:
     

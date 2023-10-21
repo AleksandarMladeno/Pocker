@@ -14,23 +14,23 @@ def highest_rank() -> Response:
             example:
                 [
                     {
-                        name: 2
+                        value: 2
                         suit: C
                     },
                     {
-                        name: A
+                        value: A
                         suit: S
                     },
                     {
-                        name: 5
+                        value: 5
                         suit: D
                     },
                     {
-                        name: 4
+                        value: 4
                         suit: H
                     },
                     {
-                        name: J
+                        value: J
                         suit: C
                     },
 
@@ -41,7 +41,7 @@ def highest_rank() -> Response:
     # 1. TODO: parse input
     content_type = request.headers.get("Content-Type")
     if content_type == "application/json":
-        name_key = "name"
+        value_key = "value"
         suit_key = "suit"
         player_hand = request.json
         log(logging.INFO, f"Processing user request: request:{player_hand}")
@@ -52,12 +52,12 @@ def highest_rank() -> Response:
         validations:
             - validate number of cards here.
             - validate cards:
-                card name value
+                card value value
                 card suit value
             ...
         """
         for card in player_hand:
-            if name_key not in card.keys() or suit_key not in card.keys():
+            if value_key not in card.keys() or suit_key not in card.keys():
                 return "Incorrectly formed request", 422
 
         # 3. TODO: call calculator here: highest_hand_rank = calculate_highest_hand_rank(player_hand)

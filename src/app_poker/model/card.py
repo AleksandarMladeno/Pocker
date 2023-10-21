@@ -1,8 +1,6 @@
 class Card:
     """
-    TODO: reconsider the name of the `name` property. for now its fine so it covers 1-10 and A-J.
-      
-    name: A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2
+    value: A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2
     suit: Spades, Hearts, Diamonds, Clubs.
     rank: looked up before instantiation in card_rank configuration
 
@@ -11,7 +9,7 @@ class Card:
     the rank property wouldn't be there.
     """
 
-    def __init__(self, name, suit, rank) -> None:
-        self.name = name
+    def __init__(self, value, suit, rank) -> None:
+        self.value = value
         self.suit = suit
         self.rank = rank

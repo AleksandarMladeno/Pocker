@@ -1,5 +1,5 @@
 """
-    A map from card name to card rank.
+    A map from card value to card rank.
     This is used to determine Poker hand rank in a HandRank.
     i.e. when hands have the same hand rank, the card ranks are used to rank them.
 

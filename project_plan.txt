@@ -7,7 +7,7 @@ objective: build a poker hand evaluator.
                 - find and return the highest-ranking Poker hand rank.
         
 
-0. Plan
+0. Plan: done
     - stories and preliminary subtasks: done
     - preliminary project structure: done
     - preliminary documentation: done
@@ -90,7 +90,7 @@ objective: build a poker hand evaluator.
                     hands that differ only by suit have EQUAL rank.
             - within the same rank, a hand is ranked using its card's ranks.
 
-2. Model Poker domain.
+2. Model Poker domain: done
 
 3. Implement a REST API application scaffolding and endpoint 
     endpoint:
@@ -134,6 +134,7 @@ objective: build a poker hand evaluator.
 4. define the "/evaluate" endpoint
     - define flow
     - define validations
+        - 5 cards requirement for this variation of Poker we are implementing.
     NB: No need to implement completely, it's simply to give us the big picture of how everything will fit 
         together.
         In an MVP/POC project, we would have a working piece of software with the Pocker domain modeled to showcase to stakeholder/client.

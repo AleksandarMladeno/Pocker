@@ -1,14 +1,11 @@
 """
-    NB: Not necessary for current objective. added to paint a full picture, to design a system that would 
-    be extensible for modelling and solving Poker problems.
-    
     A map from card name to card rank.
-    This map is configuration of a Poker rule-set.
+    This is used to determine Poker hand rank in a HandRank.
+    i.e. when hands have the same hand rank, the card ranks are used to rank them.
 
-    If we were building a generic app_poker, for different variations of poker.
-    We would instantiate it from a database, loaded when a request to determine
-    a winner, from a set of hands, for a specific poker rule-set came in.
-
+    NB: Not necessary for current objective.
+        Added it to paint a full picture, to design to a system that would
+        be extensible for modelling and solving Poker problems.
 """
 
 card_ranks = {

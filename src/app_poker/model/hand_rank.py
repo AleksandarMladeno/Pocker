@@ -1,7 +1,7 @@
 from enum import Enum
 
 """
-    represents a discrete set of hand categories and their rankings.
+    represents a discrete set of Poker hand ranks.
     1 is Highest Rank
     10 is the Lowest Rank
 """

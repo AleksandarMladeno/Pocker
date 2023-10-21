@@ -1,7 +1,7 @@
 class Card:
     """
     TODO: reconsider the name of the `name` property. for now its fine so it covers 1-10 and A-J.
-       
+      
     name: A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2
     suit: Spades, Hearts, Diamonds, Clubs.
     rank: looked up before instantiation in card_rank configuration

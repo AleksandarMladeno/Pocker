@@ -1,24 +1,27 @@
-from model.hand import Hand
+from app_poker.model.player_hand import PlayerHand
 
 
-def decide_winner(hands: [Hand]) -> Hand:
+def decide_winner(hands: [PlayerHand]) -> PlayerHand:
     """
-    NB: purely for gaining a big picture to design for, we will not be implementing this for this task.
+    objective: Determines who wins the pot.
+    return value: Returns winning hand.
 
-    determines who wins the pot.
-    returns winning hand
-
-    This would apply different winning rules based on the Poker style(i.e. ruleset at play)
+    This would apply different winning rules based on the Poker style(i.e. rule-set at play)
     example:
         for High games:
-            find hand with the lowest numbered rank
+            find and return hand with the highest hand rank.
         for Low games:
-            find hand with the highest numbered rank
+            find and return hand with the lowest hand rank.
         for High-Low split games:
-            find hand with the lowest numbered rank
+            based on the High-Low hand and card ranks:
+                find hand with the lowest hand rank.
                             and
-            find hand with the highest numbered rank
+                find hand with the highest hand rank.
 
-            based on the High-Low rank and card ranks
+            return both hands
+
+     NB: Not necessary for current objective.
+        Added it to paint a full picture, to design to a system that would
+        be extensible for modelling and solving Poker problems.
     """
     pass

@@ -16,7 +16,7 @@
         - app.py:
             entry point to startup the application
 - tests: test code lives in folder.
-- utilities: any useful scripts, such as curl & postman requests, software installations.
+- utilities: any useful scripts, such as curl & postman requests, JSON payloads, software installations, etc.
 
 ## setup instructions:
 1. Ensure you have `python 3.12` installed.
@@ -65,6 +65,7 @@
         - https://www.conventionalcommits.org/en/v1.0.0/
 ## demo:
 ### 0. start system output: <br>
+![start system output](./docs/start_system_output.png)
 
 ### 1. evaluate hand output: <br>
 

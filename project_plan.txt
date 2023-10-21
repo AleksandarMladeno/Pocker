@@ -92,9 +92,9 @@ objective: build a poker hand evaluator.
 
 2. Model Poker domain: done
 
-3. Implement a REST API application scaffolding and endpoint 
+3. Implement a REST API application scaffolding and endpoint: done 
     endpoint:
-        path: /evaluate [Can rename later]
+        path: /hand/highest-rank
         method: POST
         valid values:    
             name: { A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2 }
@@ -127,11 +127,7 @@ objective: build a poker hand evaluator.
 
                 ]
 
-    3.1. validate input:
-        - name must be in valid names
-        - suit must be in valid suits
-
-4. define the "/evaluate" endpoint
+4. define the "/hand/highest-rank" endpoint: done
     - define flow
     - define validations
         - 5 cards requirement for this variation of Poker we are implementing.
@@ -185,7 +181,7 @@ objective: build a poker hand evaluator.
     - utility scripts
 
 15. add end to end test for /evaluate endpoint
-
+    consider this: https://werkzeug.palletsprojects.com/en/2.0.x/test/ instead of JavaScript running in Node.
 ...
 
 Key:

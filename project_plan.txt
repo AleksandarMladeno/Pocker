@@ -1,10 +1,11 @@
 objective: build a poker hand evaluator.
     interface: 
         input: 5 cards from a user.
-        output: highest rank that can be obtained using those 5 cards.
-    brute force flow:
-        - generate all possible ranks
-        - find and return the highest rank
+        output: highest poker hand rank that can be obtained using the input cards.
+            brute force flow:
+                - generate all possible Poker hand ranks for the input cards.
+                - find and return the highest-ranking Poker hand rank.
+        
 
 0. Plan
     - stories and preliminary subtasks: done
@@ -95,38 +96,94 @@ objective: build a poker hand evaluator.
     endpoint:
         path: /evaluate [Can rename later]
         method: POST
-        data interface: JSON
+        valid values:    
+            name: { A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2 }
+            suit: { C, D, H, S }
+                  # C = Clubs, D = Diamonds, H = Hearts, S = Spades
 
-4. define the /evaluate endpoint
+        data interface: JSON
+            example:
+                [
+                    {
+                        name: 2
+                        suit: C
+                    },
+                    {
+                        name: A
+                        suit: S
+                    },
+                    {
+                        name: 5
+                        suit: D
+                    },
+                    {
+                        name: 4
+                        suit: H
+                    },
+                    {
+                        name: J
+                        suit: C
+                    },
+
+                ]
+
+    3.1. validate input:
+        - name must be in valid names
+        - suit must be in valid suits
+
+4. define the "/evaluate" endpoint
     - define flow
     - define validations
-    NB: no need to implement completely, it's simply to give us the big picture of how everything will fit 
+    NB: No need to implement completely, it's simply to give us the big picture of how everything will fit 
         together.
-        in an MVP/POC context we would have a working piece of software with the Pocker domain modelled to showcase.
-        
-5. Define scenarios for calculate_highest_hand_rank[Can rename later] algorithm
+        In an MVP/POC project, we would have a working piece of software with the Pocker domain modeled to showcase to stakeholder/client.
 
-6. Implement tests for calculate_highest_hand_rank algorithm
+5. Research, evaluate, and decide on library/API that can generate all possible Poker hand ranks for input cards.
+    criteria:
+        1. does it work?
+        2. is it well-tested?
+        3. is it well maintained?
+        4. is easy to use?
+        5. can it solve Poker variations that use different hand card numbers(e.g. 7 cards)
+            NB: consider this, to make the app extensible as a Domain/Context for solving Poker problems within our ecosystem.
+            NB: Thinking Point: You might need to have some Poker rule-set strategy that is applied
+                                    based on the Poker variation being played.
+
+6. Design and Implement abstraction for the chosen library/API in the gateway module:
+    NB: Thinking Point: Apply Separation of Concerns: We want to separate the external library from our context's model of Poker.
+                        benefits of this:
+                            - protects from the external library's model of Poker "bleeding" into our context's model of Poker.
+                              this would tightly couple them, which we don't want. 
+                              it would make changing/upgrading libraries:
+                                    - bug-prone, as we have a lot of places to change, depending on how much the library's models are in our model.
+
+                            - if they are loosely coupled this allows trying different/better libraries with changes localized to the gateway model
+                    
+7. Design internal calculator that will leverage the external library/API gateway module
+    to calculate:
+        - calculate_hand_ranks(hand) [Can rename later] 
+        - calculate_highest_hand_rank(hand)[Can rename later] 
+        NB: subject to change once we understand better the Poker library/API and the design of the gateway module.
+
+8. Define scenarios for calculate_highest_hand_rank and/or calculate_hand_ranks calculator algorithms
+
+9. Implement tests for calculate_highest_hand_rank and/or calculate_hand_ranks calculator algorithms
     Feel free to add scaffolding the tests require (Interface, method/function declaration etc)
     NB: No implementation yet though.
 
-7. Implement calculate_highest_hand_rank algorithm
-    - decide on 3ʳᵈ party library/API
-        if one exists that is battle tested.
-            - integrate with it.
-        else implement your own highest hand rank algorithm
+10. Implement calculate_highest_hand_rank and/or calculate_hand_ranks calculator algorithms
 
-8. Define scenarios for /evaluate endpoint
+11. Define scenarios for /evaluate endpoint
 
-9. Implement tests for /evaluate endpoint
+12. Implement tests for /evaluate endpoint
 
-10. Implement the /evaluate endpoint
+13. Implement the full flow for /evaluate endpoint
 
-11. Complete README documentation
+14. Complete README documentation
     - instructions to build/run
     - utility scripts
 
-12. add end to end test for /evaluate endpoint
+15. add end to end test for /evaluate endpoint
 
 ...
 

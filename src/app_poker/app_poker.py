@@ -1,6 +1,5 @@
 import logging
 import sys
-import os
 from logging import log
 from flask import Flask
 from api.poker_resource import api_poker

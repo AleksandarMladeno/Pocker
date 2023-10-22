@@ -25,6 +25,13 @@
         - app.py:
             entry point to startup the application
 - tests: test code lives in folder.
+    the tests are intentionally separated from production code.
+    - benefits:
+        - tests can run against an installed version after executing `pip install .`.
+        - tests can run against the local copy with an editable install after executing `pip install --edit`.
+        - when using Docker, the entire app_poker folder can be copied without needing to exclude tests, which we don't release to PROD.
+    - more in depth discussion here: https://docs.pytest.org/en/latest/explanation/goodpractices.html#choosing-a-test-layout-import-rules
+
 - utilities: any useful scripts, such as curl & postman requests, JSON payloads, software installations, etc.
 
 ## setup instructions:
@@ -58,7 +65,7 @@
 - to run tests:
     ```shell
     pipenv shell
-    PYTHONPATH=src/ pytest
+    pytest
     ```
 ## git conventions:
 - **NB:** the master is locked and all changes must come through a Pull Request.

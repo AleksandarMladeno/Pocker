@@ -1,4 +1,4 @@
-from card import Card
+from app_poker.model.card import Card
 
 
 class PlayerHand:

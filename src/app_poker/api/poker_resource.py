@@ -54,6 +54,7 @@ def highest_rank() -> Response:
             - validate cards:
                 card value value
                 card suit value
+            - fail if the hand is empty, 422
             ...
         """
         for card in player_hand:

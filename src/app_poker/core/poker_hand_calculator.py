@@ -1,5 +1,5 @@
-from model.player_hand import PlayerHand
-from config.standard.hand_rank import HandRank
+from app_poker.model.player_hand import PlayerHand
+from app_poker.config.standard.hand_rank import HandRank
 
 
 class PokerHandCalculator:
@@ -37,7 +37,8 @@ class PokerHandCalculator:
             1. implementing an automated player:
                 The player knows there are only 7,462 distinct hand ranks.
                 It can then subtract the ones possible from its cards from the
-                total possible. This knowledge can be factored into the probabilities   for what the other players have.
+                total possible. This knowledge can be factored into the probabilities
+                for what the other players have.
 
         NB: Not necessary for current objective.
         Added it to paint a full picture, to design to a system that would

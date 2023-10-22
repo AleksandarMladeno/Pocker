@@ -1,5 +1,6 @@
 from app_poker.config.standard.hand_rank import HandRank
 from app_poker.model.hand import Hand
+from app_poker.core.hand_calculator.royal_flush import is_royal_flush
 
 
 class HandCalculator:
@@ -27,11 +28,16 @@ class HandCalculator:
             It is the rule set engine's responsibility to apply the parameters
             of the match to determine the hand's rank not the hand itself.
         """
-        pass
+        cards = hand.cards
+
+        if is_royal_flush(cards):
+            return HandRank.ROYAL_FLUSH
+        else:
+            return HandRank.HIGH_CARD
 
     def calculate_all_possible_hand_ranks(self, hand: Hand) -> [HandRank]:
         """
-        Given a Poker hand, clculates all possible hand ranks for the cards.
+        Given a Poker hand, calculates all possible hand ranks for the cards.
 
         use-cases:
             1. implementing an automated player:

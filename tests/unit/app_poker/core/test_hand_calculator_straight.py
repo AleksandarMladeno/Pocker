@@ -1,4 +1,4 @@
-from app_poker.core.hand_calculator import HandCalculator
+from app_poker.core.hand_calculator.calculator import HandCalculator
 from app_poker.model.hand import Hand
 from app_poker.model.card import Card
 from app_poker.model.suit import Suit

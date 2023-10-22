@@ -200,8 +200,9 @@ objective: build a poker hand evaluator.
 
                                 NB: each of these functions will house logic to detect the pattern that constitutes the particular rank.
                     
-6. Design internal calculator interface that will implement:
+6. Design internal calculator interface that will implement: done
         - calculate_highest_hand_rank(hand)
+        - calculate_hand_ranks(hand)
 
 7. Define scenarios for calculate_highest_hand_rank algorithm
 

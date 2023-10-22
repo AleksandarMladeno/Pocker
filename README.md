@@ -1,4 +1,8 @@
 # app_poker
+- a Poker hand evaluator.
+    - currently only supports Standard High Games with Wild cards:
+        - features:
+            - calculate highest hand rank possible for a 5 card hand.
 
 ## project structure:
 - docs: project documentation will live in here.
@@ -7,6 +11,11 @@
         - api:
             - the API to the application lives in this module.
             - the current implementation is a REST API, but a gRPC, CLI API, etc would be implemented in here.
+        - config:
+            - configurable values live in here. 
+            - these are values such as Hand Ranks, Card Ranks.
+                - as the system scales, you could migrate these into a database to allow independently
+                changing config without restarting the application.
         - core:
             - the domain logic of the application lives in this module.
         - gateway:
@@ -57,7 +66,7 @@
     - provide concise commit messages that describe what you have done.
         ```shell
         # example:
-        git commit -m "feat(core):" -m"implement new faster algorithm"
+        git commit -m "feat(core): algorithm" -m"implement my new shiny faster algorithm"
         ```
     - screen shot of Githb view
     - references: 

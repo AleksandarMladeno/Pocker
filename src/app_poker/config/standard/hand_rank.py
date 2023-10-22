@@ -8,7 +8,7 @@ from enum import Enum
 
 
 class HandRank(Enum):
-    FIVE_OF_A_KIND = 1
+    ROYAL_FLUSH = 1
     STRAIGHT_FLUSH = 2
     FOUR_OF_A_KIND = 3
     FULL_HOUSE = 4

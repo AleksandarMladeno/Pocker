@@ -1,7 +1,7 @@
-from app_poker.model.player_hand import PlayerHand
+from app_poker.model.hand import Hand
 
 
-def decide_winner(hands: [PlayerHand]) -> PlayerHand:
+def decide_winner(hands: [Hand]) -> Hand:
     """
     objective: Determines who wins the pot.
     return value: Returns winning hand.

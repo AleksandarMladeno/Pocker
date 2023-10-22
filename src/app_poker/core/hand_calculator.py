@@ -1,8 +1,8 @@
-from model.player_hand import PlayerHand
-from config.standard.hand_rank import HandRank
+from app_poker.config.standard.hand_rank import HandRank
+from app_poker.model.hand import Hand
 
 
-class PokerHandCalculator:
+class HandCalculator:
     """
     A container for all Poker Hand calculations.
     With this layout we can later inject a gateway to Poker engines like
@@ -10,7 +10,7 @@ class PokerHandCalculator:
     to calculate a rank number to use in determining a winner.
     """
 
-    def calculate_highest_hand_rank(self, hand: PlayerHand) -> HandRank:
+    def calculate_highest_hand_rank(self, hand: Hand) -> HandRank:
         """
         Given a Poker hand.
         Calculates the highest hand rank possible.
@@ -29,7 +29,7 @@ class PokerHandCalculator:
         """
         pass
 
-    def calculate_hand_ranks(self, hand: PlayerHand) -> [HandRank]:
+    def calculate_all_possible_hand_ranks(self, hand: Hand) -> [HandRank]:
         """
         Given a Poker hand, clculates all possible hand ranks for the cards.
 
@@ -37,7 +37,8 @@ class PokerHandCalculator:
             1. implementing an automated player:
                 The player knows there are only 7,462 distinct hand ranks.
                 It can then subtract the ones possible from its cards from the
-                total possible. This knowledge can be factored into the probabilities   for what the other players have.
+                total possible. This knowledge can be factored into the probabilities
+                for what the other players have.
 
         NB: Not necessary for current objective.
         Added it to paint a full picture, to design to a system that would

@@ -1,6 +1,7 @@
+from dataclasses import dataclass
 from app_poker.model.card import Card
 
 
+@dataclass(frozen=True)
 class Hand:
-    def __init__(self, cards: [Card]) -> None:
-        self.hand = cards
+    cards: [Card]

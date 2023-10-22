@@ -1,3 +1,8 @@
+from dataclasses import dataclass
+from app_poker.model.suit import Suit
+
+
+@dataclass(frozen=True)
 class Card:
     """
     value: A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2
@@ -9,7 +14,6 @@ class Card:
     the rank property wouldn't be there.
     """
 
-    def __init__(self, value, suit, rank) -> None:
-        self.value = value
-        self.suit = suit
-        self.rank = rank
+    value: str
+    suit: Suit
+    rank: int

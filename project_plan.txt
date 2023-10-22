@@ -88,7 +88,8 @@ objective: build a poker hand evaluator.
             11           4, 
             12           3, 
             13           2
-            TODO: Q: What is the rank of the Joker cards?
+            TODO: Q: What is the rank of the Joker cards? Answer only needed when we implement Wild Card variant and only if
+                    we are deciding a winner.
             NB: suits are NOT ranked.
 
     - showdown: determines who wins the pot[purely for gaining a big picture to design for, we will not be implementing this]:
@@ -216,7 +217,7 @@ objective: build a poker hand evaluator.
 
 7. Define scenarios for calculate_highest_hand_rank algorithm: done
 
-8. Implement tests to represent scenarios for calculate_highest_hand_rank: WIP 
+8. Implement tests to represent scenarios for calculate_highest_hand_rank: WIP     
     Feel free to add scaffolding the tests require (Interface, method/function declaration etc)
     NB: No implementation yet though.
 

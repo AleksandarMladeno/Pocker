@@ -67,6 +67,12 @@
     pipenv shell
     pytest
     ```
+
+## development:
+- to run system in debug mode:
+    ```shell
+    ./start_system_development.sh
+    ```
 ## git conventions:
 - **NB:** the master is locked and all changes must come through a Pull Request.
 - commit messages:

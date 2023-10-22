@@ -1,8 +1,8 @@
-from app_poker.model.player_hand import PlayerHand
 from app_poker.config.standard.hand_rank import HandRank
+from app_poker.model.hand import Hand
 
 
-class PokerHandCalculator:
+class HandCalculator:
     """
     A container for all Poker Hand calculations.
     With this layout we can later inject a gateway to Poker engines like
@@ -10,7 +10,7 @@ class PokerHandCalculator:
     to calculate a rank number to use in determining a winner.
     """
 
-    def calculate_highest_hand_rank(self, hand: PlayerHand) -> HandRank:
+    def calculate_highest_hand_rank(self, hand: Hand) -> HandRank:
         """
         Given a Poker hand.
         Calculates the highest hand rank possible.
@@ -29,7 +29,7 @@ class PokerHandCalculator:
         """
         pass
 
-    def calculate_hand_ranks(self, hand: PlayerHand) -> [HandRank]:
+    def calculate_all_possible_hand_ranks(self, hand: Hand) -> [HandRank]:
         """
         Given a Poker hand, clculates all possible hand ranks for the cards.
 

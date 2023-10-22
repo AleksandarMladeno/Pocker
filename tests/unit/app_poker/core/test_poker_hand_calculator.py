@@ -1,7 +1,7 @@
-from app_poker.core.poker_hand_calculator import PokerHandCalculator
-from app_poker.model.player_hand import PlayerHand
+from app_poker.core.hand_calculator import HandCalculator
+from app_poker.model.hand import Hand
 
-poker_hand_calculator = PokerHandCalculator()
+poker_hand_calculator = HandCalculator()
 
 
 def test_calculate_highest_hand_rank_correctly_returns_five_of_a_kind():

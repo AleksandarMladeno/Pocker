@@ -77,8 +77,8 @@
         ```
     - screen shot of Githb view
     - references: 
-        - https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/
         - https://www.conventionalcommits.org/en/v1.0.0/
+        - https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/
 ## demo:
 ### 0. start system output: <br>
 ![start system output](./docs/start_system_output.png)

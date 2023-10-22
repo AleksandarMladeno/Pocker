@@ -62,7 +62,7 @@ def highest_rank() -> Response:
                 return "Incorrectly formed request", 422
 
         # 3. TODO: call calculator here:
-        # highest_hand_rank = PokerHandCalculator.calculate_highest_hand_rank(player_hand)
+        # highest_hand_rank = HandCalculator.calculate_highest_hand_rank(player_hand)
         # TODO: remove default value after calculator call is implemented
         highest_hand_rank = HandRank.STRAIGHT_FLUSH.name
         log(logging.INFO, "Successfully processed user request.")
@@ -82,7 +82,7 @@ def retrieve_possible_ranks() -> [HandRank]:
         Added it to paint a full picture, to design to a system that would
         be extensible for modelling and solving Poker problems.
     """
-    # ranks = PokerHandCalculator.calculate_hand_ranks(player_hand)
+    # ranks = HandCalculator.calculate_all_possible_hand_ranks(player_hand)
     ranks = [
         HandRank.STRAIGHT.name,
         HandRank.STRAIGHT_FLUSH.name,

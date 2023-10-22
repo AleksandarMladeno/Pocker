@@ -27,10 +27,20 @@ objective: build a poker hand evaluator.
             - 5 cards
             - rank: determined by the patterns formed by its cards.
                 - ranks and their ordering: https://en.wikipedia.org/wiki/List_of_poker_hands
+                - World Series of Poker hand rankings : https://www.wsop.com/poker-hands/ 
+                - Poker hands: https://www.cardplayer.com/rules-of-poker/hand-rankings
+
+                NB: We will use the rankings below, used by the World Series of Poker, World Poker Tour and many of the prestigious Poker tournaments.
+                    This way, we are building a system that uses the same rules as the top tournaments.
+
+                    The difference is that, they do not use wildcards to allow Five of Kind to be the highest hand rank.
+                    Instead the Royal FLush is the highest hand rank.
+                
+                    We can later add a variant in the system that supports Wild Cards, but since this is non standard, it will not take priority.
 
                 Highest Rank  = 1, Lowest Rank = 10
                 -            rank_order        rank                        example
-                -                1       Five of a kind	        Ace of spades,    Ace of clubs,      Ace of hearts,   Ace of diamonds, Black Joker
+                -                1       Royal Flush 	        Ace of spades,    King of spades,    Queen of spades, Jack  of spades, 10 of spades
                 -                2       Straight flush  	    Jack of clubs,    10 of clubs,       9 of clubs,      8 of clubs,      7 of clubs
                 -                3       Four of a kind	        5 of clubs,       5 of diamonds,     5 of hearts,     5 of spades,     2 of diamonds
                 -                4       Full house	            6 of spades,      6 of hearts,       6 of diamonds,   King of clubs,   King of hearts
@@ -204,9 +214,9 @@ objective: build a poker hand evaluator.
         - calculate_highest_hand_rank(hand)
         - calculate_hand_ranks(hand)
 
-7. Define scenarios for calculate_highest_hand_rank algorithm
+7. Define scenarios for calculate_highest_hand_rank algorithm: done
 
-8. Implement tests to represent scenarios for calculate_highest_hand_rank 
+8. Implement tests to represent scenarios for calculate_highest_hand_rank: WIP 
     Feel free to add scaffolding the tests require (Interface, method/function declaration etc)
     NB: No implementation yet though.
 

@@ -1,6 +1,6 @@
 # app_poker
 - a Poker hand evaluator.
-    - currently only supports Standard High Games with Wild cards:
+    - currently only supports Standard High Games:
         - features:
             - calculate highest hand rank possible for a 5 card hand.
 

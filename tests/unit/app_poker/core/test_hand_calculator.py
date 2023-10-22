@@ -1,10 +1,13 @@
 from app_poker.core.hand_calculator import HandCalculator
 from app_poker.model.hand import Hand
+from app_poker.model.card import Card
+from app_poker.config.standard.hand_rank import HandRank
+from app_poker.config.standard.card_ranks import card_ranks
 
-poker_hand_calculator = HandCalculator()
+hand_calculator = HandCalculator()
 
 
-def test_calculate_highest_hand_rank_correctly_returns_five_of_a_kind():
+def test_calculate_highest_hand_rank_correctly_returns_royal_flush():
     # TODO: implement tests
     assert False
 

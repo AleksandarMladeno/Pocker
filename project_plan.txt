@@ -64,7 +64,7 @@ objective: build a poker hand evaluator.
                 NB: Each card exists in each suit.
         rank:
             Highest Rank  = 1, Lowest Rank = 13
-            rank        name
+            rank        value
             1            A,
             2            K, 
             3            Q,
@@ -97,7 +97,7 @@ objective: build a poker hand evaluator.
         path: /hand/highest-rank
         method: POST
         valid values:    
-            name: { A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2 }
+            value: { A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2 }
             suit: { C, D, H, S }
                   # C = Clubs, D = Diamonds, H = Hearts, S = Spades
 
@@ -105,23 +105,23 @@ objective: build a poker hand evaluator.
             example:
                 [
                     {
-                        name: 2
+                        value: 2
                         suit: C
                     },
                     {
-                        name: A
+                        value: A
                         suit: S
                     },
                     {
-                        name: 5
+                        value: 5
                         suit: D
                     },
                     {
-                        name: 4
+                        value: 4
                         suit: H
                     },
                     {
-                        name: J
+                        value: J
                         suit: C
                     },
 
@@ -135,7 +135,7 @@ objective: build a poker hand evaluator.
         together.
         In an MVP/POC project, we would have a working piece of software with the Pocker domain modeled to showcase to stakeholder/client.
 
-5. Research, evaluate, and decide on library/API that can generate all possible Poker hand ranks for input cards.
+5. Research, evaluate, and decide on library/API that can generate all possible Poker hand ranks for input cards: done
     criteria:
         1. does it work?
         2. is it well-tested?
@@ -146,41 +146,82 @@ objective: build a poker hand evaluator.
             NB: Thinking Point: You might need to have some Poker rule-set strategy that is applied
                                     based on the Poker variation being played.
 
-6. Design and Implement abstraction for the chosen library/API in the gateway module:
-    NB: Thinking Point: Apply Separation of Concerns: We want to separate the external library from our context's model of Poker.
-                        benefits of this:
-                            - protects from the external library's model of Poker "bleeding" into our context's model of Poker.
-                              this would tightly couple them, which we don't want. 
-                              it would make changing/upgrading libraries:
-                                    - bug-prone, as we have a lot of places to change, depending on how much the library's models are in our model.
+        1. PokerKit: A Comprehensive Python Library for Fine-Grained Multi-Variant Poker Game Simulations 
+            https://arxiv.org/abs/2308.07327v4
+            https://github.com/uoftcprg/pokerkit
+            1. does it work?: for its intended purpose of simulating poker games and evaluating hands to create the strongest hand possible from
+                hole cards and boards cards.
+            2. is it well-tested?: Yes
+            3. is it well maintained?: Yes
+            4. is easy to use?: Yes
+            conclusion: unfortunately it does not solve the problem of generating the highest Poker hand rank from an arbitrary list of cards.
+    
+        2. PokerLib https://pypi.org/project/pokerlib/
+            1. does it work?: for its intended purpose of simulating Texas Hold'Em games and evaluating hands to create the strongest hand possible from
+                hole cards and boards cards.
+            2. is it well-tested?: Yes
+            3. is it well maintained?: Yes
+            4. is easy to use?: Yes
+        conclusion: unfortunately it does not solve the problem of generating the highest Poker hand rank from an arbitrary list of cards.
 
-                            - if they are loosely coupled this allows trying different/better libraries with changes localized to the gateway model
+        3. PH Evaluator: https://github.com/HenryRLee/PokerHandEvaluator
+            1. does it work?: for its intended purpose of determining the strength of a hand from precomputed hand strengths.
+            2. is it well-tested?: There are some tests, but more could be added.
+            3. is it well maintained?: Yes
+            4. is easy to use?: Yes
+        conclusion: unfortunately it does not solve the problem of generating the highest Poker hand rank from an arbitrary list of cards.
+        4. Cactus Kev's Poker Hand Evaluator: http://suffe.cool/poker/evaluator.html            
+            1. does it work?: for its intended purpose of determining the strength of a hand from precomputed hand strengths.
+            2. is it well-tested?: No unit tests or automated testing
+            3. is it well maintained?: Difficult to day,as  code is hosted on a File server instead of a Version Control system.
+            4. is easy to use?: Yes
+        conclusion: unfortunately it does not solve the problem of generating the highest Poker hand rank from an arbitrary list of cards.
+
+    overall conclusion: unfortunately the tools out there and those explored here are Poker game simulators or Poker hand strength calculators.
+                        they do not provide you the hand rank, they generate th score to use in determining a winner.
+                        NB: its very likely one exists that solves our problem, but I did not find it.
+
+                        if one were to extend app_poker to simulate Pocker or run live Poker games. PokerKit from University of Toronto Computer Poker Research Group
+                            would be the best choice.
+                        
+                        for the task at hand, I will write our own implementation.
+                            the flow will be:
+                            calculate_highest_hand_rank:
+                                if is_5_of_a_kind(hand.cards): return FIVE_OF_A_KIND
+                                elif is_a_straight_flush(hand.cards): return STRAIGHT_FLUSH
+                                elif is_4_of_a_kind(hand.cards): return FOUR_OF_A_KIND
+                                elif is_a_full_house(hand.cards): return FULL_HOUSE
+                                elif is_a_flush(hand.cards): return FLUSH
+                                elif is_a_straight(hand.cards): return STRAIGHT
+                                elif is_3_of_a_kind(hand.cards): return THREE_OF_A_KIND
+                                elif is_a_2_pair(hand.cards): return TWO_PAIR
+                                elif is_a_1_pair(hand.cards): return ONE_PAIR
+                                else: return High Card HIGH_CARD: return
+
+                                NB: each of these functions will house logic to detect the pattern that constitutes the particular rank.
                     
-7. Design internal calculator that will leverage the external library/API gateway module
-    to calculate:
-        - calculate_hand_ranks(hand) [Can rename later] 
-        - calculate_highest_hand_rank(hand)[Can rename later] 
-        NB: subject to change once we understand better the Poker library/API and the design of the gateway module.
+6. Design internal calculator interface that will implement:
+        - calculate_highest_hand_rank(hand)
 
-8. Define scenarios for calculate_highest_hand_rank and/or calculate_hand_ranks calculator algorithms
+7. Define scenarios for calculate_highest_hand_rank algorithm
 
-9. Implement tests for calculate_highest_hand_rank and/or calculate_hand_ranks calculator algorithms
+8. Implement tests to represent scenarios for calculate_highest_hand_rank 
     Feel free to add scaffolding the tests require (Interface, method/function declaration etc)
     NB: No implementation yet though.
 
-10. Implement calculate_highest_hand_rank and/or calculate_hand_ranks calculator algorithms
+9. Implement calculate_highest_hand_rank algorithm
 
-11. Define scenarios for /evaluate endpoint
+10. Define scenarios for /evaluate endpoint
 
-12. Implement tests for /evaluate endpoint
+11. Implement tests for /evaluate endpoint
 
-13. Implement the full flow for /evaluate endpoint
+12. Implement the full flow for /evaluate endpoint
 
-14. Complete README documentation
+13. Complete README documentation
     - instructions to build/run
     - utility scripts
 
-15. add end to end test for /evaluate endpoint
+14. add end to end test for /evaluate endpoint
     consider this: https://werkzeug.palletsprojects.com/en/2.0.x/test/ instead of JavaScript running in Node.
 ...
 

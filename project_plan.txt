@@ -217,23 +217,26 @@ objective: build a poker hand evaluator.
 
 7. Define scenarios for calculate_highest_hand_rank algorithm: done
 
-8. Implement tests to represent scenarios for calculate_highest_hand_rank: WIP     
-    Feel free to add scaffolding the tests require (Interface, method/function declaration etc)
-    NB: No implementation yet though.
+8. Implement tests to represent a scenario (hand rank) and the corresponding implementation for that rank.    
+    repeat this for all hank ranks in hand_rank.py.
 
-9. Implement calculate_highest_hand_rank algorithm
+    NB: This is to take an incremental approach to the implementation.
+        The scenarios for some ranks are numerous.
+        example:
+            9 for Straight.
+        
 
-10. Define scenarios for /evaluate endpoint
+9. Define scenarios for /evaluate endpoint
 
-11. Implement tests for /evaluate endpoint
+10. Implement tests for /evaluate endpoint
 
-12. Implement the full flow for /evaluate endpoint
+11. Implement the full flow for /evaluate endpoint
 
-13. Complete README documentation
+12. Complete README documentation
     - instructions to build/run
     - utility scripts
 
-14. add end to end test for /evaluate endpoint
+13. add end to end test for /evaluate endpoint
     consider this: https://werkzeug.palletsprojects.com/en/2.0.x/test/ instead of JavaScript running in Node.
 ...
 

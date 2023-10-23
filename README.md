@@ -1,4 +1,5 @@
 # app_poker
+![build status](https://github.com/praisetompane/app_poker/actions/workflows/app_poker.yaml/badge.svg)
 - a Poker hand evaluator.
     - currently only supports High Games:
         - features:

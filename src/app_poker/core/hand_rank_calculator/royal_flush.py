@@ -28,7 +28,7 @@ def is_royal_flush(cards: [Card]):
         O(N) + O(N) = O(2N) = O(N). Constants are removed from asymptotic upper-bound runtime as they don't affect it.
     """
 
-    def are_all_cards_royal():
+    def are_all_cards_royal(cards):
         royal_cards = [
             ace_card_value,
             king_card_value,
@@ -36,7 +36,7 @@ def is_royal_flush(cards: [Card]):
             jack_card_value,
             ten_card_value,
         ]
-        non_royal = [card for card in cards if card not in royal_cards]
-        return len(non_royal) > 0
+        non_royal = [card for card in cards if card.value not in royal_cards]
+        return len(non_royal) == 0
 
-    return is_flush(cards) and are_all_cards_royal()
+    return is_flush(cards) and are_all_cards_royal(cards)

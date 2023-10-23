@@ -1,7 +1,7 @@
 import logging
 from flask import Blueprint, Response, request
-from app_poker.config.standard.hand_rank import HandRank
-from app_poker.config.standard.card_ranks import card_ranks
+from app_poker.config.high_game.hand_rank import HandRank
+from app_poker.config.high_game.card_ranks import card_ranks
 from app_poker.model.hand import Hand
 from app_poker.model.card import Card
 from app_poker.core.hand_rank_calculator.calculator import HandRankCalculator
@@ -70,8 +70,6 @@ def highest_rank() -> Response:
                 for card in player_hand
             ]
         )
-
-        log(logging.INFO, hand)
 
         result = hand_rank_calculator.calculate_highest_hand_rank(hand)
         log(logging.INFO, "Successfully processed user request.")

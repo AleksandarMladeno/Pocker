@@ -52,10 +52,6 @@
     ```shell
     pipenv install
     ```
-- install packages into local environment using pip[**only required for first run**]:
-    ```shell
-    pip install -r requirements.txt
-    ```
 - to start system run:
     ```shell
     ./start_system.sh
@@ -82,8 +78,9 @@
     ![end to end curl example](./docs/end_to_end_curl_example.png) <br>
 
 - If Postman requests can be found in `/utilities/postman/app_poker.postman_collection.json`.
-    - Guide for how to import into Postman: https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/
     ![end to end postman example](./docs/end_to_end_postman_example.png)
+    - Guide for how to import into Postman: https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/
+
 
 ## development:
 - to run system in debug mode:
@@ -104,6 +101,7 @@
         - https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/
 ## demo:
 ### 0. start system output: <br>
+- output:
 ![start system output](./docs/start_system_output.png)
 
 ### 1. evaluate hand output: <br>
@@ -113,4 +111,4 @@
 ![four of a kind demo system state logs](./docs/foud_of_a_kind_demo_system_state_logs.png)
 
 
-**Disclaimer**: This is still work in progress.# app_poker
+**Disclaimer**: This is still work in progress.

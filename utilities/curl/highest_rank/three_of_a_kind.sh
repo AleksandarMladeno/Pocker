@@ -2,12 +2,16 @@ curl --location 'http://localhost:8080/api/hand/highest-rank' \
 --header 'Content-Type: application/json' \
 --data '[
     {
-        "value": "2",
-        "suit": "C"
+        "value": "A",
+        "suit": "S"
     },
     {
-        "value": "3",
+        "value": "A",
         "suit": "D"
+    },
+    {
+        "value": "A",
+        "suit": "C"
     },
     {
         "value": "4",
@@ -15,10 +19,6 @@ curl --location 'http://localhost:8080/api/hand/highest-rank' \
     },
     {
         "value": "5",
-        "suit": "D"
-    },
-    {
-        "value": "6",
         "suit": "S"
     }
 ]'

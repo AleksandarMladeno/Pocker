@@ -1,5 +1,5 @@
-from app_poker.config.standard.card_ranks import card_ranks
-from app_poker.config.standard.hand_rank import HandRank
+from app_poker.config.high_game.card_ranks import card_ranks
+from app_poker.config.high_game.hand_rank import HandRank
 from app_poker.core.hand_rank_calculator.calculator import HandRankCalculator
 from app_poker.model.card import Card
 from app_poker.model.card_values import (

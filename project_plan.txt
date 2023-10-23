@@ -198,7 +198,7 @@ objective: build a poker hand evaluator.
                         for the task at hand, I will write our own implementation.
                             the flow will be:
                             calculate_highest_hand_rank:
-                                if is_5_of_a_kind(hand.cards): return FIVE_OF_A_KIND
+                                if is_royal_flush(hand.cards): return FIVE_OF_A_KIND
                                 elif is_a_straight_flush(hand.cards): return STRAIGHT_FLUSH
                                 elif is_4_of_a_kind(hand.cards): return FOUR_OF_A_KIND
                                 elif is_a_full_house(hand.cards): return FULL_HOUSE
@@ -219,6 +219,16 @@ objective: build a poker hand evaluator.
 
 8. Implement tests to represent a scenario (hand rank) and the corresponding implementation for that rank.    
     repeat this for all hank ranks in hand_rank.py.
+            ROYAL_FLUSH: done
+            STRAIGHT_FLUSH: done
+            FOUR_OF_A_KIND = 3
+            FULL_HOUSE = 4
+            FLUSH: done
+            STRAIGHT: done
+            THREE_OF_A_KIND = 7
+            TWO_PAIR = 8
+            ONE_PAIR = 9
+            HIGH_CARD = 10
 
     NB: This is to take an incremental approach to the implementation.
         The scenarios for some ranks are numerous.

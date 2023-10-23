@@ -1,8 +1,9 @@
 # app_poker
 - a Poker hand evaluator.
-    - currently only supports Standard High Games:
+    - currently only supports High Games:
         - features:
             - calculate highest hand rank possible for a 5 card hand.
+            - calculate all possible hand ranks for a 5 card hand: **response is stubbed**
 
 ## project structure:
 - docs: project documentation will live in here.
@@ -35,38 +36,46 @@
 - utilities: any useful scripts, such as curl & postman requests, JSON payloads, software installations, etc.
 
 ## setup instructions:
-1. Ensure you have `python 3.12` installed.
+1. install `python 3.11` or higher.
     - Python download: https://www.python.org/downloads/
 
 2. clone repo: 
     ```shell
     git git@github.com:praisetompane/app_poker.git
     ```
-## run program:
-
-1. to start system run:
-    ```shell
-    ./start_system.sh
-    ```
-
-2. to stop the system run:
-    ```shell
-    ./stop_system.sh
-    ```
-
 ## package management:
 - install pipenv: https://pypi.org/project/pipenv/
 - to install packages into local environment:
     ```shell
     pipenv install
     ```
+## run program:
+- install packages into local environment[**only required for first run**]:
+    ```shell
+    pipenv install
+    ```
+- to start system run:
+    ```shell
+    ./start_system.sh
+    ```
 
 ## testing:
+### unit tests:
 - to run tests:
     ```shell
     pipenv shell
     pytest
     ```
+### end to end tests:
+- The curl request used can be found in `utilities/curl/`.
+    - example:
+    ```shell
+    ./utilities/curl/highest_rank/royal_flush.sh 
+    ```
+    ![end to end curl example](./docs/end_to_end_curl_example.png) <br>
+- If you prefer Postman, the requests collection is in the `/utilities/postman/app_poker.postman_collection.json`.
+    - Guide for how to import into Postman: https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/
+    ![end to end postman example](./docs/end_to_end_postman_example.png)
 
 ## development:
 - to run system in debug mode:

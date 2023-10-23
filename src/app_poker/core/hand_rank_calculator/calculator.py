@@ -2,6 +2,7 @@ from app_poker.config.high_game.hand_rank import HandRank
 from app_poker.core.hand_rank_calculator.royal_flush import is_royal_flush
 from app_poker.core.hand_rank_calculator.straight_flush import is_straight_flush
 from app_poker.core.hand_rank_calculator.straight import is_straight
+from app_poker.core.hand_rank_calculator.four_of_a_kind import is_four_of_a_kind
 from app_poker.core.hand_rank_calculator.flush import is_flush
 from app_poker.model.hand import Hand
 
@@ -37,7 +38,8 @@ class HandRankCalculator:
             return HandRank.ROYAL_FLUSH
         elif is_straight_flush(cards):
             return HandRank.STRAIGHT_FLUSH
-        # elif is_four_of_kind(cards):
+        elif is_four_of_a_kind(cards):
+            return HandRank.FOUR_OF_A_KIND
         # elif is_four_of_full_house(cards):
         elif is_flush(cards):
             return HandRank.FLUSH

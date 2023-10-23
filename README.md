@@ -7,7 +7,7 @@
             - calculate all possible hand ranks for a 5 card hand: **response is stubbed**
 
 ## project structure:
-- docs: project documentation will live in here.
+- docs: project documentation lives in here.
 - src: production code lives in folder and is divided in the modules below:
     - app_poker: project package
         - api:
@@ -24,7 +24,7 @@
             - all external interaction objects(e.g. files, external APIs etc) live in this module.
         - model:
             - the domain models for Poker live in this in this module.
-        - app.py:
+        - app_poker.py:
             entry point to startup the application
 - tests: test code lives in folder.
     the tests are intentionally separated from production code.
@@ -75,7 +75,7 @@
     ```
     ![end to end curl example](./docs/end_to_end_curl_example.png) <br>
 
-- If you prefer Postman, the requests collection is in the `/utilities/postman/app_poker.postman_collection.json`.
+- If Postman requests can be found in `/utilities/postman/app_poker.postman_collection.json`.
     - Guide for how to import into Postman: https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/
     ![end to end postman example](./docs/end_to_end_postman_example.png)
 
@@ -101,7 +101,10 @@
 ![start system output](./docs/start_system_output.png)
 
 ### 1. evaluate hand output: <br>
+- request and response highest rank hand evaluation for Four of a Kind:
+![four of a kind demo postman request](./docs/four_of_a_kind_demo_postman_request.png)
+- demo system state logs:
+![four of a kind demo system state logs](./docs/foud_of_a_kind_demo_system_state_logs.png)
 
-### 2. stop system output:<br>
 
 **Disclaimer**: This is still work in progress.# app_poker

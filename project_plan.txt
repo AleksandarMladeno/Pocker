@@ -227,14 +227,13 @@ objective: build a poker hand evaluator.
             STRAIGHT: done
             THREE_OF_A_KIND: done
             TWO_PAIR: done
-            ONE_PAIR: WIP
-            HIGH_CARD = 10
+            ONE_PAIR: done
+            HIGH_CARD: done
+        NB: This is to take an incremental approach to the implementation.
+            The scenarios for some ranks are numerous.
+            example:
+                9 for Straight.
     - detour: add CI/CD: done
-    NB: This is to take an incremental approach to the implementation.
-        The scenarios for some ranks are numerous.
-        example:
-            9 for Straight.
-        
 
 9. Define scenarios for /evaluate endpoint
 

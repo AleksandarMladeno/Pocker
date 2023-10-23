@@ -221,7 +221,7 @@ objective: build a poker hand evaluator.
     repeat this for all hank ranks in hand_rank.py.
             ROYAL_FLUSH: done
             STRAIGHT_FLUSH: done
-            FOUR_OF_A_KIND = 3
+            FOUR_OF_A_KIND: done
             FULL_HOUSE = 4
             FLUSH: done
             STRAIGHT: done

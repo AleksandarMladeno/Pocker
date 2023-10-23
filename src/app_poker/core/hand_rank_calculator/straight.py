@@ -1,5 +1,5 @@
+from app_poker.core.util.occurrence_counter import count_occurrences
 from app_poker.model.card import Card
-from collections import defaultdict
 
 
 def is_straight(cards: [Card]):
@@ -42,9 +42,7 @@ def is_straight(cards: [Card]):
         return set(card_ranks) == set(ace_low_straight)
 
     card_ranks = [card.rank for card in cards]
-    card_ranks_counts = defaultdict(lambda: 0)
-    for card_rank in card_ranks:
-        card_ranks_counts[card_rank] += 1
+    card_ranks_counts = count_occurrences(card_ranks)
     card_ranks_range = max(card_ranks) - min(card_ranks)
 
     if no_duplicate_card_ranks(card_ranks_counts):

@@ -46,14 +46,15 @@
     ```
 ## package management:
 - install pipenv: https://pypi.org/project/pipenv/
-- to install packages into local environment:
+
+## run program:
+- install packages into local environment using pipenv[**only required for first run**]:
     ```shell
     pipenv install
     ```
-## run program:
-- install packages into local environment[**only required for first run**]:
+- install packages into local environment using pip[**only required for first run**]:
     ```shell
-    pipenv install
+    pip install -r requirements.txt
     ```
 - to start system run:
     ```shell
@@ -63,10 +64,15 @@
 ## testing:
 ### unit tests:
 - to run tests:
+    - activate environment
     ```shell
     pipenv shell
+    ```
+    - run tests
+    ```shell
     pytest
     ```
+        
 ### end to end tests:
 - The curl request used can be found in `utilities/curl/`.
     - example:

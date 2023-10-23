@@ -74,6 +74,7 @@
     ./utilities/curl/highest_rank/royal_flush.sh 
     ```
     ![end to end curl example](./docs/end_to_end_curl_example.png) <br>
+
 - If you prefer Postman, the requests collection is in the `/utilities/postman/app_poker.postman_collection.json`.
     - Guide for how to import into Postman: https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/
     ![end to end postman example](./docs/end_to_end_postman_example.png)

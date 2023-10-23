@@ -229,7 +229,7 @@ objective: build a poker hand evaluator.
             TWO_PAIR = 8
             ONE_PAIR = 9
             HIGH_CARD = 10
-
+    - detour: add CI/CD: done
     NB: This is to take an incremental approach to the implementation.
         The scenarios for some ranks are numerous.
         example:

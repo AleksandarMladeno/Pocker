@@ -4,6 +4,7 @@ from app_poker.core.hand_rank_calculator.straight_flush import is_straight_flush
 from app_poker.core.hand_rank_calculator.straight import is_straight
 from app_poker.core.hand_rank_calculator.four_of_a_kind import is_four_of_a_kind
 from app_poker.core.hand_rank_calculator.three_of_a_kind import is_three_of_a_kind
+from app_poker.core.hand_rank_calculator.two_pair import is_a_two_pair
 from app_poker.core.hand_rank_calculator.full_house import is_full_house
 
 from app_poker.core.hand_rank_calculator.flush import is_flush
@@ -51,7 +52,8 @@ class HandRankCalculator:
             return HandRank.STRAIGHT
         elif is_three_of_a_kind(cards):
             return HandRank.THREE_OF_A_KIND
-        # elif is_two_of_a_kind(cards):
+        elif is_a_two_pair(cards):
+            return HandRank.TWO_PAIR
         # elif is_one_pair(cards):
         else:
             return HandRank.HIGH_CARD

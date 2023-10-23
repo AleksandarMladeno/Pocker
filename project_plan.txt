@@ -226,7 +226,7 @@ objective: build a poker hand evaluator.
             FLUSH: done
             STRAIGHT: done
             THREE_OF_A_KIND: done
-            TWO_PAIR: WIP
+            TWO_PAIR: done
             ONE_PAIR = 9
             HIGH_CARD = 10
     - detour: add CI/CD: done

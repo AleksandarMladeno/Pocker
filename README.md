@@ -42,7 +42,7 @@
 
 2. clone repo: 
     ```shell
-    git git@github.com:praisetompane/app_poker.git
+    git clone git@github.com:praisetompane/app_poker.git
     ```
 ## package management:
 - install pipenv: https://pypi.org/project/pipenv/

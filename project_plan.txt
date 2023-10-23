@@ -222,7 +222,7 @@ objective: build a poker hand evaluator.
             ROYAL_FLUSH: done
             STRAIGHT_FLUSH: done
             FOUR_OF_A_KIND: done
-            FULL_HOUSE = 4
+            FULL_HOUSE: done
             FLUSH: done
             STRAIGHT: done
             THREE_OF_A_KIND = 7

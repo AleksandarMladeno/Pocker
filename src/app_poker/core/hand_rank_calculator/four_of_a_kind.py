@@ -1,5 +1,5 @@
+from app_poker.core.util.occurrence_counter import count_occurrences
 from app_poker.model.card import Card
-from collections import defaultdict
 
 
 def is_four_of_a_kind(cards: [Card]):
@@ -10,9 +10,7 @@ def is_four_of_a_kind(cards: [Card]):
         total asymptotic complexity = O(N)
     """
     card_ranks = [card.rank for card in cards]
-    card_ranks_counts = defaultdict(lambda: 0)
-    for card_rank in card_ranks:
-        card_ranks_counts[card_rank] += 1
+    card_ranks_counts = count_occurrences(card_ranks)
     expected_card_counts_sorted = [1, 4]
 
     return expected_card_counts_sorted == sorted(card_ranks_counts.values())

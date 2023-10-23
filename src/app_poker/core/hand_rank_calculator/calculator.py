@@ -1,9 +1,9 @@
 from app_poker.config.standard.hand_rank import HandRank
+from app_poker.core.hand_rank_calculator.royal_flush import is_royal_flush
 from app_poker.model.hand import Hand
-from app_poker.core.hand_calculator.royal_flush import is_royal_flush
 
 
-class HandCalculator:
+class HandRankCalculator:
     """
     A container for all Poker Hand calculations.
     With this layout we can later inject a gateway to Poker engines like
@@ -50,4 +50,10 @@ class HandCalculator:
         Added it to paint a full picture, to design to a system that would
         be extensible for modelling and solving Poker problems.
         """
-        pass
+        # TODO: a dummy default value
+        ranks = [
+            HandRank.STRAIGHT.name,
+            HandRank.STRAIGHT_FLUSH.name,
+            HandRank.HIGH_CARD.name,
+        ]
+        return ranks

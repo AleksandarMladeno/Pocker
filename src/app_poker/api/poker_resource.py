@@ -1,8 +1,13 @@
 import logging
 from flask import Blueprint, Response, request
-from config.standard.hand_rank import HandRank
+from app_poker.config.standard.hand_rank import HandRank
+from app_poker.config.standard.card_ranks import card_ranks
+from app_poker.model.hand import Hand
+from app_poker.model.card import Card
+from app_poker.core.hand_rank_calculator.calculator import HandRankCalculator
 from logging import log
 
+hand_rank_calculator = HandRankCalculator()
 api_poker = Blueprint("api_poker", __name__)
 
 
@@ -48,25 +53,29 @@ def highest_rank() -> Response:
 
         # 2. TODO: validate input
         """
-        
         validations:
-            - validate number of cards here.
+            - fail if hand does not have 5 cards, 422
             - validate cards:
                 card value value
                 card suit value
-            - fail if the hand is empty, 422
             ...
         """
         for card in player_hand:
             if value_key not in card.keys() or suit_key not in card.keys():
                 return "Incorrectly formed request", 422
 
-        # 3. TODO: call calculator here:
-        # highest_hand_rank = HandCalculator.calculate_highest_hand_rank(player_hand)
-        # TODO: remove default value after calculator call is implemented
-        highest_hand_rank = HandRank.STRAIGHT_FLUSH.name
+        hand = Hand(
+            [
+                Card(card[value_key], card[suit_key], card_ranks[card[value_key]])
+                for card in player_hand
+            ]
+        )
+
+        log(logging.INFO, hand)
+
+        result = hand_rank_calculator.calculate_highest_hand_rank(hand)
         log(logging.INFO, "Successfully processed user request.")
-        return {"highest_rank": highest_hand_rank}, 200
+        return {"highest_rank": result.name}, 200
 
         # 4. TODO: graceful error handling: https://flask.palletsprojects.com/en/2.3.x/errorhandling/
     else:
@@ -82,10 +91,7 @@ def retrieve_possible_ranks() -> [HandRank]:
         Added it to paint a full picture, to design to a system that would
         be extensible for modelling and solving Poker problems.
     """
-    # ranks = HandCalculator.calculate_all_possible_hand_ranks(player_hand)
-    ranks = [
-        HandRank.STRAIGHT.name,
-        HandRank.STRAIGHT_FLUSH.name,
-        HandRank.HIGH_CARD.name,
-    ]
+    player_hand = []
+    ranks = hand_rank_calculator.calculate_all_possible_hand_ranks(player_hand)
+
     return ranks
